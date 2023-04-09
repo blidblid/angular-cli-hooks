@@ -1,15 +1,14 @@
 {
-  "name": "@berglund/angular-cli-hooks",
+  "name": "angular-cli-hooks",
   "author": "Albin Berglund",
   "license": "MIT",
-  "version": "0.0.9",
+  "version": "0.0.1",
   "builders": "builders.json",
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/blidblid/berg/tree/main/projects/angular-cli-hooks"
+    "url": "https://github.com/blidblid/angular-cli-hooks"
   },
-  "homepage": "https://hooks.albinberglund.com/readme/angular-cli-hooks",
   "scripts": {
     "build": "npx rimraf ./dist && tsc && yarn run build-assets",
     "build-assets": "npx cpx ./README.md ./dist",
@@ -21,9 +20,17 @@
     "@angular-devkit/build-angular": "*"
   },
   "dependencies": {
-    "tslib": "^2.3.0",
+    "@angular-devkit/architect": "^0.1502.5",
+    "@angular-devkit/build-angular": "^15.2.5",
     "glob": "^7.2.0",
+    "json-schema-to-typescript": "^10.1.5",
     "rxjs": "^6.0.0",
-    "json-schema-to-typescript": "^10.1.5"
+    "tslib": "^2.3.0"
+  },
+  "devDependencies": {
+    "@types/jasmine": "^4.3.1",
+    "cpx": "^1.5.0",
+    "rimraf": "^4.4.1",
+    "typescript": "^5.0.4"
   }
 }
