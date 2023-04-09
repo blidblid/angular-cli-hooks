@@ -1,0 +1,18 @@
+{
+  "appOut": "../../showcase/projects/angular-cli-hooks",
+  "tsconfig": "./tsconfig.json",
+  "appExternalLinks": [
+    {
+      "name": "@berglund/material",
+      "href": "https://material.albinberglund.com"
+    },
+    {
+      "name": "@berglund/mixins",
+      "href": "https://mixins.albinberglund.com"
+    },
+    {
+      "name": "@berglund/rx",
+      "href": "https://rx.albinberglund.com"
+    }
+  ]
+}
