@@ -18,15 +18,15 @@ A few examples include
 
 First, you need to create a package of hooks. To, for example, run ESLint before `ng build`, add a hook to `build` and a before-function. The before-function can return either `Observable`, `Promise` or a sync value.
 
-Then, to make the hook configurable, use the `schema`-property to add a JsonSchema for any configurations. When _installing_ `@berglund/angular-cli-hooks`, this schema is merged with the native Angular CLI builder schema.
+Then, to make the hook configurable, use the `schema`-property to add a JsonSchema for any configurations. When _installing_ `angular-cli-hooks`, this schema is merged with the native Angular CLI builder schema.
 
-Adding a JsonSchema makes both the hook configuration and the native builder configuration available when implementing the hook. Both are also listed when running `ng build --help` 🥳.
+Adding a JsonSchema makes both the hook configuration and the native builder configuration available when implementing the hook. Both are also listed when running `ng build --help`.
 
 ```typescript
-// index.ts in @berglund/builder-hooks
+// index.ts in builder-hooks
 
 import { BuilderOutput } from '@angular-devkit/architect';
-import { hook } from '@berglund/angular-cli-hooks';
+import { hook } from 'angular-cli-hooks';
 import { ESLint } from 'eslint';
 
 export default [
@@ -78,8 +78,8 @@ Install the hook package wherever you want to hook into Angular CLI. Then add a 
 
 ```json
 {
-  "$schema": "./node_modules/@berglund/angular-cli-hooks/schema.json",
-  "hookPackage": "@berglund/builder-hooks"
+  "$schema": "./node_modules/angular-cli-hooks/schema.json",
+  "hookPackage": "builder-hooks"
 }
 ```
 
@@ -87,14 +87,14 @@ or for multiple hook packages
 
 ```json
 {
-  "$schema": "./node_modules/@berglund/angular-cli-hooks/schema.json",
-  "hookPackage": ["@berglund/builder-hooks", "@berglund/more-builder-hooks"]
+  "$schema": "./node_modules/angular-cli-hooks/schema.json",
+  "hookPackage": ["builder-hooks", "more-builder-hooks"]
 }
 ```
 
 ### Step 3 - updating angular.json
 
-Update angular.json to use `@berglund/angular-cli-hooks` over `@angular-devkit/build-angular`.
+Update angular.json to use `angular-cli-hooks` over `@angular-devkit/build-angular`.
 
 ```json
 {
@@ -112,7 +112,7 @@ becomes
 {
   "architect": {
     "build": {
-      "builder": "@berglund/angular-cli-hooks:browser"
+      "builder": "angular-cli-hooks:browser"
     }
   }
 }
@@ -122,6 +122,6 @@ And that's it.
 
 ### Gotchas
 
-- The JsonSchema for custom configurations is merged with Angular native schemas in the `postinstall` hook of `@berglund/angular-cli-hooks`. You have to reinstall to see changes.
+- The JsonSchema for custom configurations is merged with Angular native schemas in the `postinstall` hook of `angular-cli-hooks`. You have to reinstall to see changes.
 - The `before` hook will _only_ run before the Angular native builder is invoked the first time.
 - The `after` hook will run after an Angular builder emits a BuilderOutput. This means the `after` hook will run for both fresh builds and rebuilds.

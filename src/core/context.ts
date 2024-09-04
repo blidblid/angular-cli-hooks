@@ -16,7 +16,7 @@ export function getConfig(workspaceRoot: string): Config | null {
       ) as Config;
     } catch {
       console.warn(
-        `@berglund/angular-cli-hooks could not find an ${extendAngularCliJsonFileName} file in the workspace root. ` +
+        `angular-cli-hooks could not find an ${extendAngularCliJsonFileName} file in the workspace root. ` +
           'To hook into angular, this file must exist and include a property "hooksPackage".'
       );
 
@@ -54,7 +54,7 @@ export function resolveHooks(
 
     if (resolvedHooks.length === 0) {
       console.warn(
-        `@berglund/angular-cli-hooks could not resolve any hooks in package ${packageName}.`
+        `angular-cli-hooks could not resolve any hooks in package ${packageName}.`
       );
     }
 

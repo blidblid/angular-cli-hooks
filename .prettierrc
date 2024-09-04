@@ -1,0 +1,13 @@
+{
+  "singleQuote": true,
+  "endOfLine": "crlf",
+  "plugins": ["./node_modules/prettier-plugin-organize-imports/index.js"],
+  "overrides": [
+    {
+      "files": "*.html",
+      "options": {
+        "parser": "angular"
+      }
+    }
+  ]
+}
